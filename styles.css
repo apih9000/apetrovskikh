@@ -55,10 +55,32 @@ body {
 }
 
 .logo {
-    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.logo-name {
+    font-size: 18px;
     font-weight: 700;
     color: var(--primary-color);
-    text-decoration: none;
+    line-height: 1.2;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-light);
+    line-height: 1.2;
+}
+
+.nav.scrolled .logo {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .nav-links {

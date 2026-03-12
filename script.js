@@ -65,12 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add shadow to nav on scroll
+// Add shadow to nav on scroll and show/hide logo
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.nav');
-    if (window.scrollY > 50) {
+    const heroName = document.querySelector('.hero-name');
+    const heroNameBottom = heroName.offsetTop + heroName.offsetHeight;
+    const navHeight = 70;
+
+    // Show logo when H1 name is scrolled past the navbar
+    if (window.scrollY > heroNameBottom - navHeight) {
         nav.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+        nav.classList.add('scrolled');
     } else {
         nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+        nav.classList.remove('scrolled');
     }
 });
